@@ -1,0 +1,37 @@
+<template>
+  <k-toolbar-item icon="home" tooltip="Napp sample_ui">
+    <div class="scroll">
+      <k-accordion>
+        <k-accordion-item title="Some options">
+           <div>
+             <k-button icon="search" title="Search" :on_click="clicked">
+             </k-button>
+           </div>
+        </k-accordion-item>
+      <k-accordion>
+    </div>
+  </k-toolbar-item>
+</template>
+
+<script>
+module.exports = {
+  methods: {
+    clicked (){
+      console.log("search clicked")
+    },
+  },
+  created(){
+    console.log("component created")
+  },
+}
+</script>
+
+<style type="text/css">
+  body {overflow-y:hidden;}
+  .scroll {overflow-y: auto; height:calc(100vh - 60px);}
+  .metric {width:100%; overflow: hidden;}
+  .checkbox {width:10%; float: left;}
+  .dropdown {width:90%; float: left;}
+  .text {font-size: 75%; float: left; margin-top: 1vh;}
+  .title {font-size: 105%; font-weight: bold; float: left; margin-top: 1vh;}
+</style>
