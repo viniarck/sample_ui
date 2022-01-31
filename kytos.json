@@ -1,0 +1,11 @@
+{
+  "author": "kytos",
+  "username": "kytos",
+  "name": "sample_ui",
+  "description": "sample_ui",
+  "version": "1.0.0",
+  "napp_dependencies": [],
+  "license": "MIT",
+  "url": "",
+  "tags": []
+}
