@@ -9,7 +9,7 @@ Kytos `sample_ui` NApp that's a hello world to show how the `ui` folder should b
 
 ```
 for repo in python-openflow kytos-utils kytos; do
-  git clone https://github.com/kytos/${repo}
+  git clone https://github.com/kytos-ng/${repo}
 done
 
 for repo in python-openflow kytos-utils kytos; do
