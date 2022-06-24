@@ -1,6 +1,11 @@
 """kytos/sample_ui."""
+import logging
 
-from kytos.core import KytosNApp, log
+from kytos.core.apm import execution_context
+from flask import jsonify
+from kytos.core import KytosNApp, log, rest
+
+log2 = logging.getLogger("kytos.napps.kytos/sample_ui")
 
 
 class Main(KytosNApp):
@@ -25,3 +30,23 @@ class Main(KytosNApp):
     def shutdown(self):
         """Shutdown routine of the NApp."""
         pass
+
+    @rest("v1/core_log")
+    def core_log(self):
+        transaction = execution_context.get_transaction()
+        if transaction:
+            transaction.begin_span("log.debug", "custom")
+        log.debug("core_log")
+        if transaction:
+            transaction.end_span()
+        return jsonify()
+
+    @rest("v1/log")
+    def log(self):
+        transaction = execution_context.get_transaction()
+        if transaction:
+            transaction.begin_span("log.debug", "custom")
+        log2.debug("core_log")
+        if transaction:
+            transaction.end_span()
+        return jsonify()
